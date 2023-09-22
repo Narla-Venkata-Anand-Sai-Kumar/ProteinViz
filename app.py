@@ -21,8 +21,7 @@ def index():
             viewer.zoomTo()
 
             mol3d_html = viewer.render()
-            html, u = viewer._make_html()
-            print(u)
+            html= viewer._make_html()
             html = f'''
             <!DOCTYPE html>
 <html lang="en">

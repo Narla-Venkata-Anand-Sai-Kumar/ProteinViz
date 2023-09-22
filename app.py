@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-import numpy as np
 from rdkit import Chem
 from rdkit.Chem import AllChem
 import py3Dmol

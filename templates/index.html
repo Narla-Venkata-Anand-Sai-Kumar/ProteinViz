@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Protein Structure Visualization</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #9900cc, #6600cc, #0033cc); /* Gradient background */
+            color: #fff;
+            line-height: 1.6;
+            text-align: center;
+            background-attachment: fixed; /* Fixed background */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: transparent; /* Transparent header */
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for title */
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2); /* Transparent white background for glassy effect */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 20px;
+            text-transform: uppercase; /* Uppercase title */
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: left; /* Left-align text */
+        }
+
+        /* Protein Structure Visualization Styles */
+        .protein-visualization {
+            margin-top: 20px;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Transparent white border */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            padding: 20px;
+        }
+
+        /* Input field and button styles */
+        .form-group label {
+            font-weight: bold;
+            font-size: 20px;
+            color: #ff99cc; /* Pink label color */
+        }
+
+        .form-control {
+            border: 2px solid #ff99cc; /* Pink input border */
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 16px;
+            color: #333; /* Dark text color */
+        }
+
+        .btn-primary {
+            background-color: #ff99cc;
+            border: none;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 18px;
+            padding: 15px 30px;
+        }
+
+        .btn-primary:hover {
+            background-color: #e60073; /* Darker pink on hover */
+        }
+
+        /* Glassy Effect */
+        .glassy {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: transparent;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <a class="navbar-brand" href="#">ProteinViz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>3D Protein<br>Structure Visualization</h1>
+    </header>
+
+    <div class="container glassy">
+        <h2>About Protein Structure Visualization</h2>
+        <p>
+            Explore the world of protein structures with 3D visualization. Protein structure visualization is the process of representing the three-dimensional structure of proteins
+            in a visually informative way. It plays a crucial role in understanding the function and interactions of
+            proteins in biological systems.
+        </p>
+
+
+        <!-- Form inside the card -->
+        <form method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="smiles">Enter SMILES notation:</label>
+                <input type="text" name="smiles" id="smiles" class="form-control form-control-sm" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm btn-block">Visualize</button>
+        </form>
+    </div>
+<!-- Add your name and pic at the bottom -->
+<div class="container mt-5 mb-5"> <!-- Added mb-5 for bottom margin -->
+    <div class="row">
+        <div class="col-md-6 offset-md-3 text-center">
+            <img src="static/MyImage.jpeg" alt="N V Anand Sai Kumar" class="img-fluid rounded-circle mb-3" style="max-width: 150px;">
+            <h3>N V Anand Sai Kumar</h3>
+            <h3>ML ENGINEER</h3>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Add your 3D chemical structure visualization here if available -->
+
+    <!-- Bootstrap JavaScript Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

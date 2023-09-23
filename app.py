@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from rdkit import Chem
 from rdkit.Chem import AllChem
-import py3Dmol
+import require as py3Dmol
 
 app = Flask(__name__)
 
@@ -78,11 +78,9 @@ def index():
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-'''
-            f = open('templates/main.html',"wt")
-            f.write(html)
+'''         
             # Redirect to the output page with the visualization
-            return redirect(url_for('output', smiles=smiles, mol3d_html=mol3d_html))
+            return redirect(url_for('output', smiles=smiles, mol3d_html=mol3d_html,out = html))
         else:
             error_message = "Invalid SMILES input. Please try again."
             return render_template('index.html', error_message=error_message)
@@ -94,7 +92,8 @@ def index():
 def output():
     smiles = request.args.get('smiles')
     mol3d_html = request.args.get('mol3d_html')
-    return render_template('main.html')
+    html = request.args.get('out')
+    return html
 
 if __name__ == '__main__':
     app.run(debug=True)

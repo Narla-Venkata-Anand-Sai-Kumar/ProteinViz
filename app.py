@@ -82,7 +82,7 @@ def index():
             f = open('templates/main.html',"wt")
             f.write(html)
             # Redirect to the output page with the visualization
-            return redirect(url_for('output', smiles=smiles, mol3d_html=mol3d_html,out = html))
+            return redirect(url_for('output', smiles=smiles, mol3d_html=mol3d_html))
         else:
             error_message = "Invalid SMILES input. Please try again."
             return render_template('index.html', error_message=error_message)
@@ -94,7 +94,6 @@ def index():
 def output():
     smiles = request.args.get('smiles')
     mol3d_html = request.args.get('mol3d_html')
-    html = request.args.get('out')
     return render_template("main.html")
 
 if __name__ == '__main__':

@@ -21,7 +21,7 @@ def index():
             viewer.zoomTo()
 
             mol3d_html = viewer.render()
-            html= viewer._make_html()
+            html_main= viewer._make_html()
             html = f'''
             <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,7 @@ def index():
         <h1 style="font-size: 36px;">3D visualization of {smiles}</h1>
     </section>
     <section id="3dview" style="display: flex; justify-content: center; align-items: center; height: 60vh;">
-        {html}
+        {html_main}
     </section>
 
     <footer class="bg-light py-4" style="background-color: transparent !important; color: #fff; padding: 10px 0;">
@@ -79,10 +79,10 @@ def index():
 </body>
 </html>
 '''         
-            f = open('templates/main.html',"wt")
-            f.write(html)
+            # f = open('templates/main.html',"wt")
+            # f.write(html)
             # Redirect to the output page with the visualization
-            return redirect(url_for('output', smiles=smiles, mol3d_html=mol3d_html))
+            return html
         else:
             error_message = "Invalid SMILES input. Please try again."
             return render_template('index.html', error_message=error_message)

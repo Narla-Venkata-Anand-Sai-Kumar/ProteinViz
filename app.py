@@ -53,8 +53,9 @@ def index():
     <!-- Hero section using Bootstrap -->
     <section class="hero text-center" style="background-image: url('background-image.jpg'); background-size: cover; background-position: center; padding: 100px 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
         <div class="container">
-            <h1 class="display-4" style="font-size: 36px;">Welcome to Our 3D Protein Visualization Page</h1>
-            <p class="lead" style="font-size: 24px;">Uncover the beauty of molecular structures in 3D</p>
+        <h1>Kalasalingam Academy of Research and Education</h1>
+         <h2>Computational Structural Biology</h2>
+        
         </div>
         <h1 style="font-size: 36px;">3D visualization of {smiles}</h1>
     </section>

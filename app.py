@@ -48,6 +48,7 @@ def index():
         dump_smile = smiles
         k=amino_acid(smiles)
         S=k.split('-')
+        print(S)
         smiles = ""
         for i in S:
             smiles+=Smile_String(i)

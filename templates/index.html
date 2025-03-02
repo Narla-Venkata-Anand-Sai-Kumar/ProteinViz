@@ -4,209 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Protein Structure Visualization</title>
-    <!-- Add Bootstrap CSS link -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        /* Reset some default styles */
-        body, h1, h2, p {
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #9900cc, #6600cc, #0033cc); /* Gradient background */
-            color: #fff;
-            line-height: 1.6;
-            text-align: center;
-            background-attachment: fixed; /* Fixed background */
+            font-family: 'Roboto', sans-serif;
         }
-
-        /* Header Styles */
-        header {
-            background-color: transparent; /* Transparent header */
-            color: #fff;
-            padding: 20px 0;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for title */
-        }
-
-        /* Main Content Styles */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.2); /* Transparent white background for glassy effect */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            font-size: 28px;
-            margin-top: 20px;
-            text-transform: uppercase; /* Uppercase title */
-        }
-
-        p {
-            font-size: 18px;
-            margin-top: 20px;
-            text-align: left; /* Left-align text */
-        }
-
-        /* Protein Structure Visualization Styles */
-        .protein-visualization {
-            margin-top: 20px;
-            background-color: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Transparent white border */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            padding: 20px;
-        }
-
-        /* Input field and button styles */
-        .form-group label {
-            font-weight: bold;
-            font-size: 20px;
-            color: #ff99cc; /* Pink label color */
-        }
-
-        .form-control {
-            border: 2px solid #ff99cc; /* Pink input border */
-            border-radius: 5px;
-            padding: 15px;
-            font-size: 16px;
-            color: #333; /* Dark text color */
-        }
-
-        .btn-primary {
-            background-color: #ff99cc;
-            border: none;
-            transition: background-color 0.3s ease-in-out;
-            font-size: 18px;
-            padding: 15px 30px;
-        }
-
-        .btn-primary:hover {
-            background-color: #e60073; /* Darker pink on hover */
-        }
-
-        /* Glassy Effect */
-        .glassy {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 20px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: transparent;
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        footer p {
-            font-size: 14px;
-        }
-        
     </style>
-</head>
-<body>
+    <script>
+        function showUnderDevelopment(section) {
+            document.getElementById("main-content").innerHTML = `
+                <div class="container mx-auto p-6 bg-white shadow-md rounded-lg text-center">
+                    <i class="fas fa-tools text-5xl text-yellow-500"></i>
+                    <h2 class="text-3xl font-semibold text-blue-700 mt-4">${section}</h2>
+                    <p class="text-gray-700 text-lg mt-2">This section is currently under development. Stay tuned for updates!</p>
+                    <button onclick="loadHome()" class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                        Back to Home
+                    </button>
+                </div>
+            `;
+        }
 
+        function loadHome() {
+            document.getElementById("main-content").innerHTML = `
+                <div class="container mx-auto p-6 bg-white shadow-md rounded-lg max-w-xl">
+                    <h2 class="text-2xl font-semibold text-blue-700 mb-4">About Protein Structure Visualization</h2>
+                    <p class="text-gray-700 text-md">
+                        Explore the world of protein structures with 3D visualization. Protein structure visualization is the process of representing the three-dimensional structure of proteins
+                        in a visually informative way. It plays a crucial role in understanding the function and interactions of
+                        proteins in biological systems.
+                    </p>
+                    <form class="mt-6">
+                        <label for="protein-sequence" class="block text-lg font-medium text-gray-700">Enter Protein Sequence:</label>
+                        <input type="text" id="protein-sequence" name="protein-sequence" class="w-full mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                        <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">Visualize</button>
+                    </form>
+                </div>
+
+                <div class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                        <img src="static/raja.jpeg" alt="Prof.R.Raja Subramanian" class="w-24 h-24 rounded-full mx-auto">
+                        <h3 class="text-lg font-semibold mt-3">Prof. R. Raja Subramanian</h3>
+                        <p class="text-gray-600">Course Faculty & Mentor</p>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                        <img src="static/MyImage.jpeg" alt="N V Anand Sai Kumar" class="w-24 h-24 rounded-full mx-auto">
+                        <h3 class="text-lg font-semibold mt-3">Venkata Anand Sai Kumar Narla</h3>
+                        <p class="text-gray-600">Software Engineer | AI Researcher</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-900">
     
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-        <a class="navbar-brand" href="#">ProteinViz</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Documentation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+    <nav class="bg-blue-600 p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-white text-2xl font-bold" href="#" onclick="loadHome()">ProteinViz</a>
+            <ul class="flex space-x-4">
+                <li><a class="text-white hover:text-gray-300 cursor-pointer" onclick="loadHome()">Home</a></li>
+                <li><a class="text-white hover:text-gray-300 cursor-pointer" onclick="showUnderDevelopment('About')">About</a></li>
+                <li><a class="text-white hover:text-gray-300 cursor-pointer" onclick="showUnderDevelopment('Documentation')">Documentation</a></li>
+                <li><a class="text-white hover:text-gray-300 cursor-pointer" onclick="showUnderDevelopment('Contact')">Contact</a></li>
             </ul>
         </div>
     </nav>
-    <header>
-        <h1>3D Protein<br>Structure Visualization</h1>
-        <h2>Computational Structural Biology</h2>
-        <h3>Kalasalingam Academy of Research and Education</h3>
+
+    <header class="text-center py-10">
+        <h1 class="text-4xl font-bold text-blue-700">3D Protein Structure Visualization</h1>
+        <h2 class="text-xl text-gray-700">Computational Structural Biology</h2>
+        <h3 class="text-lg text-gray-600">Kalasalingam Academy of Research and Education</h3>
     </header>
 
-
-    <div class="container glassy">
-        <h2>About Protein Structure Visualization</h2>
-        <p>
-            Explore the world of protein structures with 3D visualization. Protein structure visualization is the process of representing the three-dimensional structure of proteins
-            in a visually informative way. It plays a crucial role in understanding the function and interactions of
-            proteins in biological systems.
-        </p>
-
-        <!-- Form inside the card -->
-        <form method="POST" class="mt-4">
-            <div class="form-group">
-                <label for="smiles">Enter Protein Sequence:</label>
-                <input type="text" name="smiles" id="smiles" class="form-control form-control-sm" required list="suggestions">
-                <!-- Define the datalist with suggestions -->
+    <div id="main-content">
+        <div class="container mx-auto p-6 bg-white shadow-md rounded-lg max-w-xl">
+            <h2 class="text-2xl font-semibold text-blue-700 mb-4">About Protein Structure Visualization</h2>
+            <p class="text-gray-700 text-md">
+                Explore the world of protein structures with 3D visualization. Protein structure visualization is the process of representing the three-dimensional structure of proteins
+                in a visually informative way. It plays a crucial role in understanding the function and interactions of
+                proteins in biological systems.
+            </p>
+            <form method="POST" class="mt-6">
+                <label for="protein-sequence" class="block text-lg font-medium text-gray-700">Enter Protein Sequence:</label>
+                <input list="suggestions" type="text" id="smiles" name="smiles" 
+                       class="w-full mt-2 p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required>
+                
                 <datalist id="suggestions">
                     <option value="AUGUUUUUCUUCUUUUUUUUCUGA">
-                    <!-- Add more suggestions here -->
+                        <option value="AUGUUU"></option>
                 </datalist>
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm btn-block">Visualize</button>
-        </form>
-        
-    </div>
+            
+                <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">Visualize</button>
+            </form>
+            
+        </div>
 
-
-
-    <!-- Add your name and pic at the bottom -->
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-6 mb-2"> <!-- Decreased the bottom margin -->
-                <div class="card border-0 glassy">
-                    <img src="static/raja.jpeg" alt="N V Anand Sai Kumar" class="card-img-top img-fluid mx-auto rounded-circle" style="max-width: 140px;">
-                    <div class="card-body text-center">
-                        <h3 class="card-body">Prof.R.Raja Subramanian</h3>
-                        <h4 class="card-subtitle">Course Faculty & Mentor</h4>
-                    </div>
-                </div>
+        <div class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <img src="static/MyImage.jpeg" alt="N V Anand Sai Kumar" class="w-24 h-24 rounded-full mx-auto">
+                <h3 class="text-lg font-semibold mt-3">Venkata Anand Sai Kumar Narla</h3>
+                <p class="text-gray-600">Software Engineer | AI Researcher</p>
             </div>
-    
-            <div class="col-md-6 mb-2"> <!-- Decreased the bottom margin -->
-                <div class="card border-0 glassy">
-                    <img src="static/MyImage.jpeg" alt="N V Anand Sai Kumar" class="card-img-top img-fluid mx-auto rounded-circle" style="max-width: 150px;">
-                    <div class="card-body text-center">
-                        <h3 class="card-body">Narla Venkata Anand Sai Kumar</h3>
-                        <h4 class="card-subtitle">Student / AIML</h4>
-                    </div>
-                </div>
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <img src="static/raja.jpeg" alt="Prof.R.Raja Subramanian" class="w-24 h-24 rounded-full mx-auto">
+                <h3 class="text-lg font-semibold mt-3">Prof. R. Raja Subramanian</h3>
+                <p class="text-gray-600">Course Faculty & Mentor</p>
             </div>
+            
         </div>
     </div>
-    
-    
-    
 
-    <!-- Add your 3D chemical structure visualization here if available -->
-
-    <!-- Bootstrap JavaScript Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

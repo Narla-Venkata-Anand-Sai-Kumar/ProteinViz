@@ -67,62 +67,53 @@ def index():
             mol3d_html = viewer.render()
             html_main= viewer._make_html()
             html = f'''
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Protein Visualization</title>
-    <!-- Link to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background: linear-gradient(to bottom, #9900cc, #6600cc, #0033cc); color: #fff; line-height: 1.6; text-align: center; background-attachment: fixed;">
-
-    <!-- Navigation bar using Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: transparent !important;">
-        <a class="navbar-brand" href="#" style="font-size: 24px; color: #fff !important;">ProteinViz</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="background-color: #fff !important;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #fff !important;">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #fff !important;">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #fff !important;">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" style="color: #fff !important;">Contact</a></li>
-            </ul>
-        </div>
+<body class="font-sans bg-gradient-to-b from-blue-50 to-blue-100 text-blue-800 min-h-screen" style="margin: 0; padding: 0;">
+    <!-- Navigation Bar -->
+    <nav class="text-white p-4 flex justify-between items-center shadow-lg fixed w-full top-0 z-10" style="background: rgb(37 99 235 / var(--tw-bg-opacity, 1));">
+        <a href="#" class="text-3xl font-extrabold">ProteinViz</a>
+        <ul class="flex gap-6 text-lg">
+            <li><a href="#about" class="hover:underline">About</a></li>
+            <li><a href="#services" class="hover:underline">Services</a></li>
+            <li><a href="#contact" class="hover:underline">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero section using Bootstrap -->
-    <section class="hero text-center" style="background-image: url('background-image.jpg'); background-size: cover; background-position: center; padding: 100px 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-        <div class="container">
-        <h1>Kalasalingam Academy of Research and Education</h1>
-         <h2>Computational Structural Biology</h2>
-        
-        </div>
-        <h1 style="font-size: 36px;">3D visualization of {dump_smile}</h1>
-    </section>
-    <section id="3dview" style="display: flex; justify-content: center; align-items: center; height: 60vh;">
-        {html_main}
+    <!-- Hero Section -->
+    <header class="py-24 text-center mt-16">
+        <h1 class="text-5xl font-bold text-blue-900">3D Protein Visualization</h1>
+        <h2 class="text-2xl mt-4 font-medium text-blue-700">Computational Structural Biology</h2>
+        <p class="text-xl mt-4 font-semibold text-blue-800">Visualization of <span class="font-bold">{dump_smile}</span></p>
+    </header>
+
+    <!-- 3D View Section -->
+    <section id="3dview" class="flex justify-center items-center h-[60vh] p-6">
+            {html_main}
+       
     </section>
 
-    <footer class="bg-light py-4" style="background-color: transparent !important; color: #fff; padding: 10px 0;">
-        <div class="container text-center">
-            <div class="footer-logo" style="font-size: 18px;">
-                <p>Developed By <b>N V ANAND SAI KUMAR</b></p>
-            </div>
-            <p>&copy; 2023 3D Protein Visualization</p>
-            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-        </div>
+    <!-- Floating Decorative Elements -->
+    <div class="absolute top-10 left-5 w-24 h-24 bg-blue-200 rounded-full opacity-50" style="animation: bounce 2s infinite;"></div>
+    <div class="absolute bottom-10 right-10 w-20 h-20 bg-blue-200 rounded-full opacity-50" style="animation: pulse 3s infinite;"></div>
+    <div class="absolute top-1/3 left-1/4 w-16 h-16 bg-blue-300 rounded-full opacity-40" style="animation: spin 4s linear infinite;"></div>
+
+    <!-- Footer -->
+    <footer class="text-white py-6 mt-16 text-center shadow-lg" style="background: rgb(37 99 235 / var(--tw-bg-opacity, 1));">
+        <p class="text-lg font-semibold">Developed by <b>N V ANAND SAI KUMAR</b></p>
+        <p>&copy; 2023 3D Protein Visualization</p>
+        <p><a href="#" class="underline">Privacy Policy</a> | <a href="#" class="underline">Terms of Service</a></p>
     </footer>
-
-    <!-- Link to Bootstrap JavaScript Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
 '''         
             # f = open('templates/main.html',"wt")
             # f.write(html)

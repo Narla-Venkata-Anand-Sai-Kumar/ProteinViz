@@ -15,7 +15,7 @@ COPY . /app
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --default-timeout=1000 -r requirements.txt
 
-#Epose the port
+#Epose the port ( user based )
 EXPOSE 4000
 
 # Run the application

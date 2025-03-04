@@ -16,7 +16,7 @@ COPY . /app
 RUN pip3 install --no-cache-dir --default-timeout=1000 -r requirements.txt
 
 #Epose the port ( user based )
-EXPOSE 4000
+EXPOSE 80
 
 # Run the application
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT ["gunicorn", "-w", "4", "-b", "0.0.0.0:80", "app:app"]

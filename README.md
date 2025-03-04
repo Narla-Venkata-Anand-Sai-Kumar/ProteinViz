@@ -33,6 +33,42 @@ ProteinViz is a repository developed using Python and Flask for the 3D represent
 
 5. Access the application through a web browser at `http://localhost:5000`.
 
+## Alternative with docker 
+# Dockerized Python Application with Gunicorn
+
+This guide explains how to build and run the Python application inside a Docker container using **Gunicorn** as the application server.
+
+## Prerequisites
+- Docker installed on your system.
+- A `Dockerfile` in the project directory.
+- A `requirements.txt` file specifying the dependencies.
+
+## Building the Docker Image
+Run the following command in the project directory (where the `Dockerfile` is located):
+```sh
+docker build -t proteinviz .
+```
+This command:
+- Uses the `Dockerfile` to create an image.
+- Tags the image as `proteinviz`.
+
+## Running the Docker Container
+After building the image, you can run the container using:
+```sh
+docker run -p 80:80 proteinviz
+```
+This command:
+- Maps port `80` of the container to port `80` of the host.
+- Runs the container based on `proteinviz` image.
+
+## Running in Detached Mode
+To run the container in the background (detached mode):
+```sh
+docker run -d -p 80:80 proteinviz
+```
+
+open [http://localhost:80](http://localhost:80) in your browser.
+
 ## Contributions
 
 Contributions to ProteinViz are welcome! Whether you want to enhance the visualization capabilities, improve the user interface, or add new features, feel free to fork the repository and submit a pull request.
